@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wednesday Schedule — FYS 191MCS26</title>
+  <meta name="description" content="Meeting-by-meeting schedule for the Wednesday sections of FYS 191MCS26, Fall 2026.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="course-no" href="index.html">
+      <strong data-course-number></strong> · <span data-semester></span>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="monday.html">Monday</a>
+      <a href="wednesday.html" aria-current="page">Wednesday</a>
+      <a href="syllabus.pdf" target="_blank" rel="noopener">Syllabus</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="day-header">
+    <a class="backlink" href="index.html">← All sections</a>
+    <h1><span class="dow" data-day-name></span> sections</h1>
+    <p class="sub">
+      <span data-day-count></span> class meetings, from
+      <span data-day-first></span> through <span data-day-last></span>.
+      Click any meeting for topics, prep, and what's due.
+    </p>
+    <div class="section-chips" data-sections></div>
+    <div class="controls">
+      <button type="button" data-expand-all>Expand all</button>
+      <button type="button" onclick="window.print()">Print / save PDF</button>
+    </div>
+  </section>
+
+  <div class="schedule" data-schedule="wednesday"></div>
+
+</main>
+
+<footer class="foot wrap">
+  <span><span data-course-number></span> · <span data-institution></span></span>
+  <span>Questions? <a data-instructor-email href="#"></a></span>
+</footer>
+
+<script src="assets/build.js"></script>
+<script src="assets/course-data.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FYS 191MCS26 — Bits, Bytes, and Modern Computing Systems</title>
+  <meta name="description" content="First-Year Seminar on how computers represent, move, and compute with information. University of Massachusetts Amherst, Fall 2026.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="course-no" href="index.html">
+      <strong data-course-number></strong> · <span data-semester></span>
+    </a>
+    <nav>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="monday.html">Monday</a>
+      <a href="wednesday.html">Wednesday</a>
+      <a href="syllabus.pdf" target="_blank" rel="noopener">Syllabus</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="wrap">
+
+    <section class="hero">
+      <p class="eyebrow">
+        <span data-course-subtitle></span> · <span data-course-number></span>
+      </p>
+      <h1 data-course-title></h1>
+      <p class="blurb" data-blurb></p>
+
+      <div class="meta">
+        <span>Instructor <strong data-instructor></strong></span>
+        <span>Semester <strong data-semester></strong></span>
+        <span><a data-instructor-email href="#"></a></span>
+      </div>
+    </section>
+
+    <section class="block" style="padding-top:0">
+      <p class="chooser-label">Pick your class day</p>
+      <div class="chooser" data-chooser></div>
+      <p class="section-note" style="margin-top:20px">
+        All four sections cover the same material. The two schedules differ only
+        in dates, because university holidays fall differently on Mondays and
+        Wednesdays — so use the page for the day your section actually meets.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2 class="section-title">What we do in this course</h2>
+      <p class="section-note">
+        We start at a single bit and work upward. Along the way we take apart the
+        machine: how a photo becomes numbers, how three logic gates turn into
+        arithmetic, how a processor executes billions of instructions a second,
+        and how a message crosses the world in a fraction of one. No prior
+        programming experience is expected or required.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2 class="section-title">Syllabus</h2>
+      <p class="section-note">
+        Three pages: grading, attendance, assignments, course policies, and the
+        full schedule for both the Monday and the Wednesday sections.
+        <a href="syllabus.pdf" target="_blank" rel="noopener">Open the syllabus (PDF) →</a>
+      </p>
+    </section>
+
+    <section class="block">
+      <h2 class="section-title">Instructor &amp; contact</h2>
+      <p class="section-note">
+        Office hours are for anything — the reading, the problem sets, choosing a
+        project, or how the first year is going generally. You do not need a
+        reason to come.
+      </p>
+      <ul class="keydates">
+        <li><span class="kd-date">Instructor</span><span class="kd-label" data-instructor></span></li>
+        <li><span class="kd-date">Email</span><span class="kd-label"><a data-instructor-email href="#"></a></span></li>
+        <li><span class="kd-date">Office</span><span class="kd-label" data-office></span></li>
+        <li><span class="kd-date">Office hours</span><span class="kd-label" data-office-hours></span></li>
+        <li><span class="kd-date">Classroom</span><span class="kd-label" data-location></span></li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2 class="section-title">Semester dates</h2>
+      <p class="section-note">
+        University-wide deadlines for <span data-semester></span>. Your own class
+        meetings are listed on the Monday and Wednesday pages above.
+      </p>
+      <ul class="keydates" data-keydates></ul>
+    </section>
+
+  </div>
+
+</main>
+
+<footer class="foot wrap">
+  <span><span data-course-number></span> · <span data-institution></span></span>
+  <span>Last updated <span data-year></span></span>
+</footer>
+
+<script src="assets/build.js"></script>
+<script src="assets/course-data.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

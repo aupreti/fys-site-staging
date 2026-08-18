@@ -1,0 +1,682 @@
+/* ==========================================================================
+   FYS 191MCS26 — site styles
+   Light palette on :root, dark palette swapped under prefers-color-scheme.
+   ========================================================================== */
+
+:root {
+  --bg:            #f7f6f3;
+  --surface:       #ffffff;
+  --surface-2:     #f1efea;
+  --border:        #e0ddd6;
+  --border-strong: #c9c5bb;
+
+  --text:          #1c1b19;
+  --text-muted:    #63605a;
+  --text-faint:    #8b877f;
+
+  --accent:        #2f5d8c;
+  --accent-soft:   #e8f0f8;
+
+  --mon:           #8c4a2f;
+  --mon-soft:      #f7ece6;
+  --wed:           #2f6b5d;
+  --wed-soft:      #e6f2ef;
+
+  --off:           #a03b3b;
+  --off-soft:      #fbeded;
+
+  --shadow:        0 1px 2px rgba(28, 27, 25, .06), 0 8px 24px rgba(28, 27, 25, .06);
+  --shadow-lift:   0 2px 4px rgba(28, 27, 25, .08), 0 16px 40px rgba(28, 27, 25, .12);
+
+  --radius:        14px;
+  --radius-sm:     8px;
+
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:            #16161a;
+    --surface:       #1e1e23;
+    --surface-2:     #26262c;
+    --border:        #33333b;
+    --border-strong: #4a4a55;
+
+    --text:          #ecebe8;
+    --text-muted:    #a5a29c;
+    --text-faint:    #7d7a74;
+
+    --accent:        #7fb0dd;
+    --accent-soft:   #1c2b39;
+
+    --mon:           #e0a184;
+    --mon-soft:      #33241d;
+    --wed:           #7fc9b6;
+    --wed-soft:      #1b2f2a;
+
+    --off:           #e08c8c;
+    --off-soft:      #331e1e;
+
+    --shadow:        0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+    --shadow-lift:   0 2px 4px rgba(0,0,0,.5), 0 16px 40px rgba(0,0,0,.5);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); }
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Site header ---------- */
+
+.masthead {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.masthead-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 18px 0;
+}
+
+.masthead .course-no {
+  font-family: var(--mono);
+  font-size: .8rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.masthead .course-no strong { color: var(--text); font-weight: 600; }
+
+.masthead nav {
+  display: flex;
+  gap: 20px;
+  font-size: .88rem;
+}
+
+.masthead nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.masthead nav a:hover { color: var(--text); }
+.masthead nav a[aria-current="page"] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Hero ---------- */
+
+.hero { padding: 68px 0 44px; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 14px;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  font-weight: 600;
+  margin: 0 0 18px;
+  max-width: 18ch;
+}
+
+.hero .blurb {
+  font-size: 1.12rem;
+  color: var(--text-muted);
+  max-width: 58ch;
+  margin: 0 0 8px;
+}
+
+.hero .meta {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  font-size: .92rem;
+  color: var(--text-muted);
+}
+
+.hero .meta span strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ---------- Day chooser (home) ---------- */
+
+.chooser-label {
+  font-family: var(--mono);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 16px;
+}
+
+.chooser {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding-bottom: 12px;
+}
+
+.day-card {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px 28px 26px;
+  box-shadow: var(--shadow);
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+  overflow: hidden;
+}
+
+.day-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--card-accent);
+}
+
+.day-card:hover,
+.day-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--border-strong);
+}
+
+.day-card:focus-visible { outline: 2px solid var(--card-accent); outline-offset: 3px; }
+
+.day-card.mon { --card-accent: var(--mon); --card-soft: var(--mon-soft); }
+.day-card.wed { --card-accent: var(--wed); --card-soft: var(--wed-soft); }
+
+.day-card .day-name {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 4px;
+  color: var(--card-accent);
+}
+
+.day-card .day-sub {
+  font-size: .88rem;
+  color: var(--text-muted);
+  margin: 0 0 20px;
+}
+
+.day-card ul {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.day-card li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--card-soft);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  font-size: .92rem;
+}
+
+.day-card li .sect { color: var(--text-muted); }
+.day-card li .time { font-family: var(--mono); font-size: .86rem; color: var(--text); }
+
+.day-card .go {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--card-accent);
+}
+
+.day-card .go .arrow { transition: transform .16s ease; }
+.day-card:hover .go .arrow { transform: translateX(4px); }
+
+/* ---------- Generic sections ---------- */
+
+section.block { padding: 46px 0; }
+section.block + section.block { border-top: 1px solid var(--border); }
+
+h2.section-title {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.section-note {
+  color: var(--text-muted);
+  font-size: .95rem;
+  margin: 0 0 24px;
+  max-width: 62ch;
+}
+
+/* ---------- Key dates ---------- */
+
+.keydates {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.keydates li {
+  background: var(--surface);
+  padding: 16px 18px;
+}
+
+.keydates .kd-date {
+  font-family: var(--mono);
+  font-size: .8rem;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 3px;
+}
+
+.keydates .kd-label { font-size: .93rem; color: var(--text); }
+
+/* ---------- Schedule page header ---------- */
+
+.day-header { padding: 52px 0 34px; }
+
+.day-header h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  font-weight: 600;
+  margin: 0 0 10px;
+  line-height: 1.12;
+}
+
+.day-header h1 .dow { color: var(--day-accent); }
+
+.day-header .sub { color: var(--text-muted); margin: 0 0 24px; max-width: 60ch; }
+
+.section-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
+  background: var(--day-soft);
+  color: var(--text);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 7px 15px;
+  font-size: .9rem;
+}
+
+.chip .chip-label { color: var(--text-muted); font-size: .84rem; }
+.chip .chip-time { font-family: var(--mono); font-size: .86rem; font-weight: 600; }
+
+.day-page.mon { --day-accent: var(--mon); --day-soft: var(--mon-soft); }
+.day-page.wed { --day-accent: var(--wed); --day-soft: var(--wed-soft); }
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  font: inherit;
+  font-size: .86rem;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 15px;
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease;
+}
+
+.controls button:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.controls button:focus-visible {
+  outline: 2px solid var(--day-accent);
+  outline-offset: 2px;
+}
+
+.backlink {
+  display: inline-block;
+  font-size: .88rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+.backlink:hover { color: var(--text); }
+
+/* ---------- Schedule ---------- */
+
+.schedule { display: grid; gap: 14px; padding-bottom: 60px; }
+
+.unit-head {
+  font-family: var(--mono);
+  font-size: .74rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 22px 0 2px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.unit-head::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.schedule > .unit-head:first-child { margin-top: 0; }
+
+.meeting {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.meeting > summary {
+  display: grid;
+  grid-template-columns: 108px 34px 1fr auto;
+  align-items: baseline;
+  gap: 16px;
+  padding: 18px 20px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.meeting > summary::-webkit-details-marker { display: none; }
+.meeting > summary:hover { background: var(--surface-2); }
+.meeting > summary:focus-visible { outline: 2px solid var(--day-accent); outline-offset: -2px; }
+
+.m-date {
+  font-family: var(--mono);
+  font-size: .84rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.m-num {
+  font-family: var(--mono);
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--day-accent);
+  background: var(--day-soft);
+  border-radius: 6px;
+  padding: 3px 0;
+  text-align: center;
+}
+
+.m-title { font-weight: 600; font-size: 1.02rem; line-height: 1.35; }
+
+.m-toggle {
+  font-size: .78rem;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+.meeting[open] .m-toggle::after { content: "Hide ▲"; }
+.meeting:not([open]) .m-toggle::after { content: "Details ▼"; }
+
+.m-body {
+  padding: 4px 20px 22px;
+  border-top: 1px solid var(--border);
+  margin-top: -1px;
+}
+
+.m-body .m-summary {
+  color: var(--text-muted);
+  margin: 16px 0 18px;
+  max-width: 68ch;
+}
+
+.m-topics {
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.m-topics li {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: .84rem;
+  color: var(--text-muted);
+}
+
+.m-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.m-field {
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+  padding: 13px 15px;
+}
+
+.m-field .fl {
+  display: block;
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 5px;
+}
+
+.m-field .fv { font-size: .93rem; }
+
+/* Slides: view in browser (primary) + download the .pptx (secondary) */
+.m-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.m-slides-alt {
+  font-size: .84rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 1px;
+}
+
+.m-slides-alt:hover { color: var(--text); border-bottom-color: var(--text); }
+
+/* Production-only marker on decks students can't see yet */
+.m-unpub {
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--off);
+  background: var(--off-soft);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+/* Production-only build badge in the masthead */
+.build-badge {
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--surface);
+  background: var(--off);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-left: auto;
+}
+
+.m-slides {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--day-accent);
+  background: var(--day-soft);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 9px 16px;
+  transition: border-color .15s ease, transform .15s ease;
+}
+
+.m-slides:hover {
+  border-color: var(--day-accent);
+  transform: translateY(-1px);
+}
+
+.m-slides:focus-visible { outline: 2px solid var(--day-accent); outline-offset: 2px; }
+.m-slides-icon { font-size: 1rem; line-height: 1; }
+
+/* Guest lectures and the wrap-up sit quieter than taught classes */
+.meeting.guest { background: var(--surface-2); box-shadow: none; }
+.meeting.guest .m-num { color: var(--text-faint); background: transparent; }
+.m-title.is-tbd { color: var(--text-muted); font-weight: 500; }
+.meeting.guest .m-summary { margin-bottom: 0; }
+
+/* Callout note on a meeting */
+.m-note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: .9rem;
+  margin: 0 20px 18px;
+}
+.meeting:not([open]) .m-note { margin-top: 0; margin-bottom: 18px; }
+.m-note .m-note-icon { flex: none; }
+
+/* Days off */
+.meeting.off {
+  background: var(--off-soft);
+  border-color: color-mix(in srgb, var(--off) 30%, transparent);
+  box-shadow: none;
+}
+
+.meeting.off > summary { grid-template-columns: 108px 1fr; cursor: default; }
+.meeting.off > summary:hover { background: transparent; }
+.meeting.off .m-title { color: var(--off); font-weight: 600; font-size: .97rem; }
+.meeting.off .m-note {
+  background: color-mix(in srgb, var(--off) 10%, transparent);
+  border-left-color: var(--off);
+  margin-top: -6px;
+}
+
+/* ---------- Footer ---------- */
+
+.foot {
+  border-top: 1px solid var(--border);
+  padding: 28px 0 44px;
+  font-size: .86rem;
+  color: var(--text-faint);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: space-between;
+}
+
+.foot a { color: var(--text-muted); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .wrap { padding: 0 18px; }
+  .hero { padding: 46px 0 32px; }
+
+  .meeting > summary {
+    grid-template-columns: 40px 1fr;
+    grid-template-areas:
+      "num  date"
+      "num  title"
+      "num  toggle";
+    gap: 4px 14px;
+    row-gap: 2px;
+  }
+  .meeting > summary .m-num    { grid-area: num; align-self: start; padding: 4px 0; }
+  .meeting > summary .m-date   { grid-area: date; }
+  .meeting > summary .m-title  { grid-area: title; }
+  .meeting > summary .m-toggle { grid-area: toggle; margin-top: 6px; }
+
+  .meeting.off > summary {
+    grid-template-columns: 1fr;
+    grid-template-areas: "date" "title";
+  }
+}
+
+/* Printing: schedule.js opens every <details> before the print dialog,
+   so the full schedule prints out as a plain handout. */
+@media print {
+  body { background: #fff; }
+  .masthead nav, .m-toggle, .backlink, .foot, .controls { display: none; }
+  .meeting { break-inside: avoid; box-shadow: none; border-color: #ccc; }
+  .meeting > summary { cursor: default; }
+}
